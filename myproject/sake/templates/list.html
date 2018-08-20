@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 main">
+        <img src="{% static 'img/Free_Sake_Vector.svg' %}" class="img-rounded main-size" alt="sake">
+        <p>Free Vectors by <a rel="nofollow" href="https://www.Vecteezy.com">www.Vecteezy.com</a></p>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">お酒のリスト</div>
+      <div class="panel-body">
+          <div class="col-md-4">
+              {% for sake in sakes %}
+              <section class="card">
+                  <div class="card-title">
+                      <img class="card-img"  src="{{sake.image.url}}" alt="{{sake.name}}">
+                      <p class="card-sake-name">{{sake.name}}</p>
+                  </div>
+                  <div class="card-content">
+                    <h1 class="card-content-title">どんなお酒？</h1>
+                    <p class="card-text">COMMENTS</p>
+                      <p>酒蔵：{{sake.maker.name}}</p>
+                  </div>
+                  <div class="card-link">
+                      <a class="btn btn-primary" href="{{sake.get_absolute_url}}">詳細を見る</a>
+                  </div>
+              </section>
+              {% endfor %}
+          </div>
+      </div>
+  </div>
+
+{% endblock %}

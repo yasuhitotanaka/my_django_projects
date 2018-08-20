@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>プロフィール</h2>
+    <img src="#" alt="Profile">
+    <form action="" enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        {{ form }}
+    </form>
+    <button class="btn btn-primary">更新する</button>
+{% endblock %}

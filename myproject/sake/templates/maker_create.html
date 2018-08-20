@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <form action="" enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            {{form}}
+          <input type="submit" class="btn btn-primary" value="register">
+        </form>
+        {% include "maker_list.html" %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

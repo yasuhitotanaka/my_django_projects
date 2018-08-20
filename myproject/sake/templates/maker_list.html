@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 container">
+            <table border="1" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Maker Name</th>
+                    <th>Location</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for maker in makers %}
+                <tr>
+                    <td>{{maker.name}}</td>
+                    <td>{{maker.location}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>奈良のお酒たち</title>
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Simonetta" rel="stylesheet">
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="{% static 'css/sake.css' %}">
+
+</head>
+<body class="loader">
+
+    <!--NAVBAR-->
+    <nav class="navbar navbar-default techfont custom-navbar">
+        <div class="container">
+            <ul>
+                <li><a class="navbar-brand bigbrand" href="{% url 'sake:SakeListView' %}">奈良のお酒たち</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'sake:SakeCreatelView'%}">お酒情報の登録</a>
+                </li>
+                <li>
+                    <a href="{% url 'sake:MakerCreateView' %}">酒造の登録</a>
+                </li>
+                <li>
+                    <a href="#">ユーザー情報の登録</a>
+                </li>
+                <li>
+                    <a href="#">ログアウト</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="{% url 'sake:SakeCreatelView'%}">お酒情報の登録</a>
+                </li>
+                <li>
+                    <a href="{% url 'sake:MakerCreateView' %}">酒造の登録</a>
+                </li>
+                <li>
+                    <a href="#">ユーザー情報の登録</a>
+                </li>
+                <li>
+                    <a href="#">ログイン</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <!--CONTENET BLOCK-->
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="sake_list">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
